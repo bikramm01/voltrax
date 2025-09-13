@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { motion, Variants, useAnimation } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Autoplay } from "swiper/modules";
 
 // Animation Variants
@@ -260,11 +260,13 @@ export default function Page() {
 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
   {/* Product Card 1 - Actual Product */}
   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6 flex flex-col items-center text-center">
-    <img
-      src="/products/Voltrax-Lithium-Batery.jpeg"
-      alt="VoltraX EV Battery"
-      className="w-40 h-40 object-contain mb-4"
-    />
+   <Image
+  src="/products/Voltrax-Lithium-Batery.jpeg"
+  alt="VoltraX EV Battery"
+  width={160}
+  height={160}
+  className="object-contain mb-4"
+/>
     <h3 className="text-lg font-semibold text-gray-800 mb-2">Voltrax Lithium Batery</h3>
     <p className="text-gray-600 mb-4">
       Reliable EV battery with optimized performance for e-rickshaw vehicles.
@@ -282,11 +284,14 @@ export default function Page() {
 
   {/* Product Card 2 - Coming Soon */}
   <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6 flex flex-col items-center text-center">
-    <img
-      src="/products/Voltrax-Farrata-Fan-20.png"
-      alt="Voltrax Farrata Fan 20"
-      className="w-40 h-40 object-contain mb-4"
-    />
+    <Image
+  src="/products/Voltrax-Farrata-Fan-20.png"
+  alt="VoltraX EV Battery"
+  width={160}
+  height={160}
+  className="object-contain mb-4"
+/>
+
     <h3 className="text-lg font-semibold text-gray-800 mb-2">Voltrax Farrata Fan 20</h3>
     <p className="text-gray-500 mb-4">High-capacity EV fan launching soon.</p>
     <a
@@ -450,56 +455,59 @@ export default function Page() {
       What Our Customers Say
     </motion.h2>
 
-    {/* Swiper Carousel for Testimonials */}
     <Swiper
-      spaceBetween={30}
-      slidesPerView={1}
-      loop={true}
-      autoplay={{ delay: 4000, disableOnInteraction: false }}
-      breakpoints={{
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
-      className="pb-8"
-    >
-      {[
-        {
-          name: "Rohit Sharma",
-          designation: "EV Owner, Pune",
-          photo: "/testimonials/rohit.jpg",
-          feedback: "VoltraX batteries transformed my EV experience. Fast charging and longer life make a huge difference!"
-        },
-        {
-          name: "Suman Mukherjee",
-          designation: "Fleet Manager, Kolkata",
-          photo: "/testimonials/suman.jpg",
-          feedback: "Reliable and maintenance-free! Our delivery fleet performance improved drastically after switching to VoltraX."
-        },
-        {
-          name: "Priya Nair",
-          designation: "EV Enthusiast, Bangalore",
-          photo: "/testimonials/priya.jpg",
-          feedback: "Eco-friendly and high-performance. I love that I can rely on VoltraX for both speed and safety."
-        }
-      ].map((testi, idx) => (
-        <SwiperSlide key={idx}>
-          <motion.div
-            className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center h-full"
-            variants={fadeUp}
-          >
-            <img
-              src={testi.photo}
-              alt={testi.name}
-              className="w-24 h-24 object-cover rounded-full mb-4 border-2 border-green-700"
-            />
-            <p className="text-gray-700 mb-4 italic">"{testi.feedback}"</p>
-            <h4 className="font-semibold text-lg text-green-900">{testi.name}</h4>
-            <p className="text-sm text-green-700">{testi.designation}</p>
-          </motion.div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+  spaceBetween={30}
+  slidesPerView={1}
+  loop={true}
+  autoplay={{ delay: 4000, disableOnInteraction: false }}
+  breakpoints={{
+    640: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  }}
+  className="pb-8"
+>
+  {[
+    {
+      name: "Rohit Sharma",
+      designation: "EV Owner, Pune",
+      photo: "https://via.placeholder.com/150",
+      feedback: "VoltraX batteries transformed my EV experience. Fast charging and longer life make a huge difference!"
+    },
+    {
+      name: "Suman Mukherjee",
+      designation: "Fleet Manager, Kolkata",
+      photo: "https://via.placeholder.com/150",
+      feedback: "Reliable and maintenance-free! Our delivery fleet performance improved drastically after switching to VoltraX."
+    },
+    {
+      name: "Priya Nair",
+      designation: "EV Enthusiast, Bangalore",
+      photo: "https://via.placeholder.com/150",
+      feedback: "Eco-friendly and high-performance. I love that I can rely on VoltraX for both speed and safety."
+    }
+  ].map((testi, idx) => (
+    <SwiperSlide key={idx}>
+      <motion.div
+        className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center h-full"
+        variants={fadeUp}
+      >
+        <Image
+          src={testi.photo}
+          alt={testi.name}
+          width={96}   // required
+          height={96}  // required
+          unoptimized   // allows remote images
+          className="object-cover rounded-full mb-4 border-2 border-green-700"
+        />
+        <p className="text-gray-700 mb-4 italic">"{testi.feedback}"</p>
+        <h4 className="font-semibold text-lg text-green-900">{testi.name}</h4>
+        <p className="text-sm text-green-700">{testi.designation}</p>
+      </motion.div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+
   </motion.div>
 </section>
 
