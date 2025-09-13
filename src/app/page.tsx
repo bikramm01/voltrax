@@ -67,65 +67,67 @@ export default function Page() {
     <main className="min-h-screen flex flex-col">
 
       {/* Hero Banner */}
-      <section className="relative h-[80vh] flex items-center bg-green-800 text-white">
-        <Image
-          src="/voltraxbattery-hero.png"
-          alt="VoltraX"
-          fill
-          className="object-cover opacity-70"
-          priority
-        />
-        <div className="relative z-10 px-4 md:px-16 lg:px-24 w-full max-w-2xl flex flex-col justify-center text-left">
-          <motion.h1
-            className="text-5xl md:text-7xl font-extrabold text-yellow-400 tracking-tight leading-tight"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            VoltraX
-          </motion.h1>
+     <section className="relative h-[80vh] flex items-center bg-green-800 text-white">
+  <Image
+    src="/voltraxbattery-hero.png"
+    alt="VoltraX"
+    fill
+    className="object-cover opacity-70"
+    priority
+  />
+  <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-24 w-full max-w-full sm:max-w-xl md:max-w-2xl flex flex-col justify-center text-left">
+    
+    <motion.h1
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-yellow-400 tracking-tight leading-snug sm:leading-snug md:leading-tight"
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+    >
+      VoltraX
+    </motion.h1>
 
-          <motion.p
-            className="mt-4 text-xl md:text-2xl text-white/90 font-semibold h-14"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
-          >
-            <TypingEffect text={tagline} />
-          </motion.p>
+    <motion.p
+      className="mt-4 text-sm sm:text-base md:text-xl text-white/90 font-semibold leading-snug sm:leading-snug md:leading-normal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 1 }}
+    >
+      <TypingEffect text={tagline} />
+    </motion.p>
 
-          <motion.ul
-            className="mt-6 space-y-2 text-lg md:text-xl font-medium"
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-          >
-            {features.map((feat, idx) => (
-              <motion.li
-                key={idx}
-                className="before:content-['•'] before:text-yellow-400 before:mr-2"
-                variants={fadeUp}
-              >
-                {feat}
-              </motion.li>
-            ))}
-          </motion.ul>
+    <motion.ul
+      className="mt-4 sm:mt-6 space-y-1 sm:space-y-2 text-sm sm:text-base md:text-lg font-medium"
+      initial="hidden"
+      animate="visible"
+      variants={stagger}
+    >
+      {features.map((feat, idx) => (
+        <motion.li
+          key={idx}
+          className="before:content-['•'] before:text-yellow-400 before:mr-2"
+          variants={fadeUp}
+        >
+          {feat}
+        </motion.li>
+      ))}
+    </motion.ul>
 
-          <motion.div
-            className="mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3 }}
-          >
-            <a
-              href="#contact"
-              className="bg-yellow-400 text-green-900 font-bold px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-transform inline-block"
-            >
-              Enquire for Dealership / Purchase
-            </a>
-          </motion.div>
-        </div>
-      </section>
+    <motion.div
+      className="mt-6 sm:mt-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 3 }}
+    >
+      <a
+        href="#contact"
+        className="bg-yellow-400 text-green-900 font-bold px-6 py-2 sm:px-8 sm:py-3 md:px-8 md:py-4 rounded-xl shadow-xl hover:scale-105 transition-transform inline-block text-xs sm:text-sm md:text-base"
+      >
+        Enquire for Dealership / Purchase
+      </a>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Upcoming Products */}
       <section id="upcoming-products" className="py-16 bg-white">
@@ -168,62 +170,57 @@ export default function Page() {
           </Swiper>
         </motion.div>
       </section>
-{/* Intro Video Background Section */}
-<section className="relative h-[100vh] flex items-end justify-center">
+
+    {/* Intro Video Background Section */}
+<section className="relative h-screen flex items-end justify-center md:items-end">
   {/* Background Video */}
   <video
     autoPlay
     muted
     loop
     playsInline
-    className="absolute inset-0 w-full h-full object-cover"
+    className="absolute inset-0 w-full h-full object-contain md:object-cover bg-black"
   >
     <source src="/intro.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  {/* Gradient Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/0"></div>
+  {/* Gradient overlay for readability */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
 
   {/* Foreground Content */}
   <motion.div
-    className="relative z-10 text-center px-4 max-w-3xl mx-auto pb-16"
+    className="relative z-10 text-center px-4 max-w-3xl mx-auto pb-16 flex flex-col justify-end h-full"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1, ease: "easeOut" }}
+    transition={{ duration: 1, ease: 'easeOut' }}
     viewport={{ once: true }}
   >
     {/* Headline */}
     <motion.h2
-      className="text-3xl md:text-5xl font-extrabold mb-3 leading-snug text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 drop-shadow-xl"
+      className="text-3xl md:text-5xl font-extrabold mb-3 leading-snug text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-400 to-green-600 drop-shadow-xl"
       animate={{
         scale: [1, 1.03, 1],
         textShadow: [
-          "0px 0px 4px #FFD700",
-          "0px 0px 12px #FF4500",
-          "0px 0px 4px #FFD700",
+          '0px 0px 4px #FFFF00',
+          '0px 0px 12px #ADFF2F',
+          '0px 0px 4px #FFFF00',
         ],
       }}
-      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
     >
-      Powering the Future with{" "}
-      <span className="text-yellow-300">VoltraX</span>
+      Powering the Future with <span className="text-yellow-300">VoltraX</span>
     </motion.h2>
 
     {/* Subtitle */}
     <motion.p
       className="text-base md:text-lg text-white/90 drop-shadow-lg mb-5"
       animate={{ opacity: [0.85, 1, 0.85], y: [0, -4, 0] }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 0.5,
-      }}
+      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
     >
-      High-performance lithium batteries built for{" "}
-      <span className="text-yellow-300 font-semibold">speed</span>,{" "}
-      <span className="text-yellow-300 font-semibold">safety</span>, and{" "}
+      High-performance lithium batteries built for{' '}
+      <span className="text-yellow-300 font-semibold">speed</span>,{' '}
+      <span className="text-yellow-300 font-semibold">safety</span>, and{' '}
       <span className="text-yellow-300 font-semibold">sustainability</span>.
     </motion.p>
 
@@ -234,17 +231,19 @@ export default function Page() {
       animate={{
         scale: [1, 1.05, 1],
         boxShadow: [
-          "0 0 6px #FFD700",
-          "0 0 14px #FFD700",
-          "0 0 6px #FFD700",
+          '0 0 6px #FFD700',
+          '0 0 14px #FFD700',
+          '0 0 6px #FFD700',
         ],
       }}
-      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
     >
       Enquire Now
     </motion.a>
-  </motion.div>
+  </motion.div> {/* Close motion.div properly */}
 </section>
+
+
 
 {/* Product Section */}
 <section id="products" className="py-16 bg-gray-50">
@@ -329,7 +328,6 @@ export default function Page() {
 
   </div>
 </section>
-
 {/* Why Choose Section */}
 <section id="about" className="py-20 bg-gray-50">
   <motion.div
@@ -339,103 +337,108 @@ export default function Page() {
     whileInView="visible"
     viewport={{ once: true }}
   >
-   {/* Left Column - VoltraX Advantages */}
-<motion.div variants={fadeUp} className="bg-white shadow-lg rounded-xl p-8 flex flex-col justify-between">
-  <div>
-    <h2 className="text-3xl font-extrabold mb-6 text-green-700">
-      Why Choose <span className="text-yellow-500">VoltraX?</span>
-    </h2>
-    <ul className="space-y-3 text-gray-700 text-lg">
-      <li>✔️ 24/7 Support</li>
-      <li>✔️ Home Service</li>
-      <li>✔️ Stepney Support</li>
-      <li>✔️ Affordable Pricing</li>
-      <li>✔️ Quick Response Time</li>
-      <li>✔️ Experienced Professionals</li>
-      <li>✔️ 100% Service Guarantee</li>
-      <li>✔️ Eco-Friendly Solutions</li>
-    </ul>
-  </div>
+    {/* Left Column - VoltraX Advantages */}
+    <motion.div
+      variants={fadeUp}
+      className="bg-white shadow-lg rounded-xl p-8 flex flex-col justify-between"
+    >
+      <div>
+        <h2 className="text-3xl font-extrabold mb-6 text-green-700">
+          Why Choose <span className="text-yellow-500">VoltraX?</span>
+        </h2>
+        <ul className="space-y-3 text-gray-700 text-lg">
+          <li>✔️ 24/7 Support</li>
+          <li>✔️ Home Service</li>
+          <li>✔️ Stepney Support</li>
+          <li>✔️ Affordable Pricing</li>
+          <li>✔️ Quick Response Time</li>
+          <li>✔️ Experienced Professionals</li>
+          <li>✔️ 100% Service Guarantee</li>
+          <li>✔️ Eco-Friendly Solutions</li>
+        </ul>
+      </div>
 
-  {/* Wide image */}
-  <div className="mt-8">
-    <Image
-      src="/voltrax-advantages-banner.png" // <-- replace with your actual image path
-      alt="VoltraX Advantages"
-      width={600}
-      height={250}
-      className="rounded-lg shadow-md w-full object-cover"
-    />
-  </div>
-</motion.div>
+      {/* Wide image */}
+      <div className="mt-8">
+        <Image
+          src="/voltrax-advantages-banner.png" // replace with your actual image path
+          alt="VoltraX Advantages"
+          width={600}
+          height={250}
+          className="rounded-lg shadow-md w-full object-cover"
+        />
+      </div>
+    </motion.div>
 
     {/* Right Column - Lithium Battery Advantages */}
-   {/* Right Column - Lithium Battery Advantages */}
-<motion.div variants={fadeUp} className="bg-white shadow-lg rounded-xl p-8">
-  <h2 className="text-3xl font-extrabold mb-6 text-yellow-500">
-    Advantages of <span className="text-green-700">VoltraX Lithium</span> over Acid Batteries
-  </h2>
+    <motion.div
+      variants={fadeUp}
+      className="bg-white shadow-lg rounded-xl p-8"
+    >
+      <h2 className="text-3xl font-extrabold mb-6 text-yellow-500">
+        Advantages of <span className="text-green-700">VoltraX Lithium</span> over Acid Batteries
+      </h2>
 
-  {/* Comparison Table */}
-  <div className="overflow-x-auto">
-    <table className="min-w-full border border-gray-200 text-gray-800 text-sm md:text-base rounded-lg overflow-hidden">
-      <thead className="bg-green-600 text-white text-left">
-        <tr>
-          <th className="px-4 py-3 border border-gray-200">Feature</th>
-          <th className="px-4 py-3 border border-gray-200">VoltraX Lithium</th>
-          <th className="px-4 py-3 border border-gray-200">Acid Battery</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="hover:bg-gray-100">
-          <td className="px-4 py-3 border">Backup Life</td>
-          <td className="px-4 py-3 border">Lasts 5–9 years</td>
-          <td className="px-4 py-3 border">Lasts only 7–12 months</td>
-        </tr>
-        <tr className="bg-gray-50 hover:bg-gray-100">
-          <td className="px-4 py-3 border">Weight</td>
-          <td className="px-4 py-3 border">Under 50 KG (lightweight)</td>
-          <td className="px-4 py-3 border">Around 120 KG (very heavy)</td>
-        </tr>
-        <tr className="hover:bg-gray-100">
-          <td className="px-4 py-3 border">Charging Time</td>
-          <td className="px-4 py-3 border">Fully charges in 3–3.5 hours</td>
-          <td className="px-4 py-3 border">Needs 10–12 hours for full charge</td>
-        </tr>
-        <tr className="bg-gray-50 hover:bg-gray-100">
-          <td className="px-4 py-3 border">Cycle Life</td>
-          <td className="px-4 py-3 border">3000–5000+ cycles</td>
-          <td className="px-4 py-3 border">300–500 cycles</td>
-        </tr>
-        <tr className="hover:bg-gray-100">
-          <td className="px-4 py-3 border">Maintenance</td>
-          <td className="px-4 py-3 border">Zero maintenance, hassle-free</td>
-          <td className="px-4 py-3 border">Requires regular water top-up & checking</td>
-        </tr>
-        <tr className="bg-gray-50 hover:bg-gray-100">
-          <td className="px-4 py-3 border">Efficiency</td>
-          <td className="px-4 py-3 border">High efficiency (95–98%)</td>
-          <td className="px-4 py-3 border">Low efficiency (70–80%)</td>
-        </tr>
-        <tr className="hover:bg-gray-100">
-          <td className="px-4 py-3 border">Pollution</td>
-          <td className="px-4 py-3 border">Eco-friendly, no leakage or gas</td>
-          <td className="px-4 py-3 border">Acid & lead – harmful for environment</td>
-        </tr>
-        <tr className="bg-gray-50 hover:bg-gray-100">
-          <td className="px-4 py-3 border">Space Required</td>
-          <td className="px-4 py-3 border">Compact, saves space</td>
-          <td className="px-4 py-3 border">Large size, needs more space</td>
-        </tr>
-        <tr className="hover:bg-gray-100">
-          <td className="px-4 py-3 border">Overall Cost</td>
-          <td className="px-4 py-3 border">Higher initial price but long life = big savings</td>
-          <td className="px-4 py-3 border">Cheap at first but frequent replacement = high long-term cost</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</motion.div>
+      {/* Comparison Table */}
+      <div className="overflow-x-auto">
+        <table className="min-w-full border border-gray-200 text-gray-800 text-sm md:text-base rounded-lg overflow-hidden">
+          <thead className="bg-green-600 text-white text-left">
+            <tr>
+              <th className="px-4 py-3 border border-gray-200">Feature</th>
+              <th className="px-4 py-3 border border-gray-200">VoltraX Lithium</th>
+              <th className="px-4 py-3 border border-gray-200">Acid Battery</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="hover:bg-gray-100">
+              <td className="px-4 py-3 border">Backup Life</td>
+              <td className="px-4 py-3 border">Lasts 5–9 years</td>
+              <td className="px-4 py-3 border">Lasts only 7–12 months</td>
+            </tr>
+            <tr className="bg-gray-50 hover:bg-gray-100">
+              <td className="px-4 py-3 border">Weight</td>
+              <td className="px-4 py-3 border">Under 50 KG (lightweight)</td>
+              <td className="px-4 py-3 border">Around 120 KG (very heavy)</td>
+            </tr>
+            <tr className="hover:bg-gray-100">
+              <td className="px-4 py-3 border">Charging Time</td>
+              <td className="px-4 py-3 border">Fully charges in 3–3.5 hours</td>
+              <td className="px-4 py-3 border">Needs 10–12 hours for full charge</td>
+            </tr>
+            <tr className="bg-gray-50 hover:bg-gray-100">
+              <td className="px-4 py-3 border">Cycle Life</td>
+              <td className="px-4 py-3 border">3000–5000+ cycles</td>
+              <td className="px-4 py-3 border">300–500 cycles</td>
+            </tr>
+            <tr className="hover:bg-gray-100">
+              <td className="px-4 py-3 border">Maintenance</td>
+              <td className="px-4 py-3 border">Zero maintenance, hassle-free</td>
+              <td className="px-4 py-3 border">Requires regular water top-up & checking</td>
+            </tr>
+            <tr className="bg-gray-50 hover:bg-gray-100">
+              <td className="px-4 py-3 border">Efficiency</td>
+              <td className="px-4 py-3 border">High efficiency (95–98%)</td>
+              <td className="px-4 py-3 border">Low efficiency (70–80%)</td>
+            </tr>
+            <tr className="hover:bg-gray-100">
+              <td className="px-4 py-3 border">Pollution</td>
+              <td className="px-4 py-3 border">Eco-friendly, no leakage or gas</td>
+              <td className="px-4 py-3 border">Acid & lead – harmful for environment</td>
+            </tr>
+            <tr className="bg-gray-50 hover:bg-gray-100">
+              <td className="px-4 py-3 border">Space Required</td>
+              <td className="px-4 py-3 border">Compact, saves space</td>
+              <td className="px-4 py-3 border">Large size, needs more space</td>
+            </tr>
+            <tr className="hover:bg-gray-100">
+              <td className="px-4 py-3 border">Overall Cost</td>
+              <td className="px-4 py-3 border">Higher initial price but long life = big savings</td>
+              <td className="px-4 py-3 border">Cheap at first but frequent replacement = high long-term cost</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </motion.div>
   </motion.div>
 </section>
 
