@@ -1,27 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 export default function PrivacyPage() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Products", href: "/#products" },
-    { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Blog", href: "/blog" },
-  ];
-
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900">
-      
       {/* PRIVACY CONTENT */}
       <section className="pt-24 pb-20 max-w-4xl mx-auto px-6">
         <h1 className="text-4xl md:text-5xl font-extrabold text-[#1f8f3e] mb-6">
@@ -64,8 +45,7 @@ export default function PrivacyPage() {
             </h2>
             <p>
               We implement strict security measures to safeguard your personal
-              data. However, please note that no online transmission is 100%
-              secure.
+              data. However, please note that no online transmission is 100% secure.
             </p>
           </section>
 
@@ -101,7 +81,6 @@ export default function PrivacyPage() {
           </section>
         </div>
       </section>
-
     </main>
   );
 }
