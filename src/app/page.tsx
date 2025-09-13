@@ -439,7 +439,7 @@ export default function Page() {
   </motion.div>
 </section>
 
-/* Testimonial Section */
+{/* Testimonial Section */}
 <section id="testimonials" className="py-16 bg-green-50">
   <motion.div
     className="max-w-7xl mx-auto px-4"
@@ -497,9 +497,9 @@ export default function Page() {
             <Image
               src={testi.photo}
               alt={testi.name}
-              width={96}   // required for next/image
-              height={96}  // required for next/image
-              unoptimized   // allows remote images
+              width={96}
+              height={96}
+              unoptimized
               className="object-cover rounded-full mb-4 border-2 border-green-700"
             />
             <p className="text-gray-700 mb-4 italic">&quot;{testi.feedback}&quot;</p>
