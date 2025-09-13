@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,20 +25,19 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "backdrop-blur bg-white/90 shadow"
-          : "bg-transparent"
+        scrolled ? "backdrop-blur bg-white/90 shadow" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3">
-            <div className="h-9 w-9 sm:h-10 sm:w-10">
-              <img
+          <Link href="/" className="flex items-center gap-3">
+            <div className="h-9 w-9 sm:h-10 sm:w-10 relative">
+              <Image
                 src="/logo.png"
-                alt="Voltrax Logo"
-                className="h-full w-full object-cover rounded-xl"
+                alt="VoltraX Logo"
+                fill
+                className="object-cover rounded-xl"
               />
             </div>
             <span
@@ -46,12 +47,12 @@ export default function Header() {
             >
               VoltraX
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 font-medium">
             {navItems.map((n) => (
-              <a
+              <Link
                 key={n.href}
                 href={n.href}
                 className={`transition-colors ${
@@ -61,9 +62,9 @@ export default function Header() {
                 }`}
               >
                 {n.label}
-              </a>
+              </Link>
             ))}
-            <a
+            <Link
               href="/#contact"
               className={`ml-2 inline-flex items-center rounded-xl px-4 py-2 font-semibold shadow hover:shadow-md transition ${
                 scrolled
@@ -72,7 +73,7 @@ export default function Header() {
               }`}
             >
               Get Quote
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -93,12 +94,7 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
               <svg
@@ -108,12 +104,7 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </button>
@@ -125,22 +116,22 @@ export default function Header() {
         <div className="md:hidden bg-white/95 shadow-lg backdrop-blur-sm border-t border-gray-200 z-40 relative">
           <nav className="flex flex-col items-start px-6 py-4 gap-3 font-medium">
             {navItems.map((n) => (
-              <a
+              <Link
                 key={n.href}
                 href={n.href}
                 onClick={() => setMenuOpen(false)}
                 className="w-full text-gray-800 hover:text-[#1f8f3e] transition-colors"
               >
                 {n.label}
-              </a>
+              </Link>
             ))}
-            <a
+            <Link
               href="/#contact"
               onClick={() => setMenuOpen(false)}
               className="w-full mt-2 inline-flex items-center justify-center rounded-xl bg-[#28a745] px-4 py-2 text-white font-semibold shadow hover:bg-[#23913f] transition"
             >
               Get Quote
-            </a>
+            </Link>
           </nav>
         </div>
       )}

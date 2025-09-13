@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 type ProductCardProps = {
   tag: string;
   title: string;
@@ -9,7 +12,13 @@ export default function ProductCard({ tag, title, img, points }: ProductCardProp
   return (
     <div className="group rounded-3xl overflow-hidden bg-white shadow-md hover:shadow-2xl transition">
       <div className="relative aspect-[4/3]">
-        <img src={img} alt={title} className="absolute inset-0 h-full w-full object-cover" />
+        {/* ✅ Use next/image instead of <img> */}
+        <Image
+          src={img}
+          alt={title}
+          fill
+          className="object-cover"
+        />
         <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-[#fdd835] text-[#204c2e] px-3 py-1 text-xs font-bold shadow">
           {tag}
         </span>
@@ -26,12 +35,13 @@ export default function ProductCard({ tag, title, img, points }: ProductCardProp
         </ul>
         <div className="mt-5 flex items-center justify-between">
           <span className="text-sm text-gray-500">Delivery in 3–5 days</span>
-          <a
+          {/* ✅ Use Link instead of <a> for internal navigation */}
+          <Link
             href="#contact"
             className="inline-flex items-center rounded-xl bg-[#28a745] px-4 py-2 text-white font-semibold shadow hover:bg-[#23913f]"
           >
             Enquire
-          </a>
+          </Link>
         </div>
       </div>
     </div>
