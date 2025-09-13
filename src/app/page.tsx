@@ -438,7 +438,8 @@ export default function Page() {
 </motion.div>
   </motion.div>
 </section>
-{/* Testimonial Section */}
+
+/* Testimonial Section */
 <section id="testimonials" className="py-16 bg-green-50">
   <motion.div
     className="max-w-7xl mx-auto px-4"
@@ -455,59 +456,59 @@ export default function Page() {
       What Our Customers Say
     </motion.h2>
 
+    {/* Swiper Carousel */}
     <Swiper
-  spaceBetween={30}
-  slidesPerView={1}
-  loop={true}
-  autoplay={{ delay: 4000, disableOnInteraction: false }}
-  breakpoints={{
-    640: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-  }}
-  className="pb-8"
->
-  {[
-    {
-      name: "Rohit Sharma",
-      designation: "EV Owner, Pune",
-      photo: "https://via.placeholder.com/150",
-      feedback: "VoltraX batteries transformed my EV experience. Fast charging and longer life make a huge difference!"
-    },
-    {
-      name: "Suman Mukherjee",
-      designation: "Fleet Manager, Kolkata",
-      photo: "https://via.placeholder.com/150",
-      feedback: "Reliable and maintenance-free! Our delivery fleet performance improved drastically after switching to VoltraX."
-    },
-    {
-      name: "Priya Nair",
-      designation: "EV Enthusiast, Bangalore",
-      photo: "https://via.placeholder.com/150",
-      feedback: "Eco-friendly and high-performance. I love that I can rely on VoltraX for both speed and safety."
-    }
-  ].map((testi, idx) => (
-    <SwiperSlide key={idx}>
-      <motion.div
-        className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center h-full"
-        variants={fadeUp}
-      >
-        <Image
-          src={testi.photo}
-          alt={testi.name}
-          width={96}   // required
-          height={96}  // required
-          unoptimized   // allows remote images
-          className="object-cover rounded-full mb-4 border-2 border-green-700"
-        />
-        <p className="text-gray-700 mb-4 italic">"{testi.feedback}"</p>
-        <h4 className="font-semibold text-lg text-green-900">{testi.name}</h4>
-        <p className="text-sm text-green-700">{testi.designation}</p>
-      </motion.div>
-    </SwiperSlide>
-  ))}
-</Swiper>
-
+      spaceBetween={30}
+      slidesPerView={1}
+      loop={true}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
+      breakpoints={{
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
+      className="pb-8"
+    >
+      {[
+        {
+          name: "Rohit Sharma",
+          designation: "EV Owner, Pune",
+          photo: "https://via.placeholder.com/150",
+          feedback: "VoltraX batteries transformed my EV experience. Fast charging and longer life make a huge difference!"
+        },
+        {
+          name: "Suman Mukherjee",
+          designation: "Fleet Manager, Kolkata",
+          photo: "https://via.placeholder.com/150",
+          feedback: "Reliable and maintenance-free! Our delivery fleet performance improved drastically after switching to VoltraX."
+        },
+        {
+          name: "Priya Nair",
+          designation: "EV Enthusiast, Bangalore",
+          photo: "https://via.placeholder.com/150",
+          feedback: "Eco-friendly and high-performance. I love that I can rely on VoltraX for both speed and safety."
+        }
+      ].map((testi, idx) => (
+        <SwiperSlide key={idx}>
+          <motion.div
+            className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center h-full"
+            variants={fadeUp}
+          >
+            <Image
+              src={testi.photo}
+              alt={testi.name}
+              width={96}   // required for next/image
+              height={96}  // required for next/image
+              unoptimized   // allows remote images
+              className="object-cover rounded-full mb-4 border-2 border-green-700"
+            />
+            <p className="text-gray-700 mb-4 italic">&quot;{testi.feedback}&quot;</p>
+            <h4 className="font-semibold text-lg text-green-900">{testi.name}</h4>
+            <p className="text-sm text-green-700">{testi.designation}</p>
+          </motion.div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   </motion.div>
 </section>
 
