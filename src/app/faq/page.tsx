@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useEffect, useState } from "react";
+import { JSX, useState } from "react";
 
 type FAQItem = {
   q: string;
@@ -8,14 +8,6 @@ type FAQItem = {
 };
 
 export default function FAQPage() {
-  // Sticky header style on scroll
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   // FAQ list
   const faqs: FAQItem[] = [
     {
