@@ -66,17 +66,26 @@ export default function Page() {
   return (
     <main className="min-h-screen flex flex-col">
 
-      {/* Hero Banner */}
-     <section className="relative h-[80vh] flex items-center bg-green-800 text-white">
-  <Image
-    src="/voltraxbattery-hero.png"
-    alt="VoltraX"
-    fill
-    className="object-cover opacity-70"
-    priority
-  />
+     {/* Hero Banner */}
+<section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] flex items-center bg-green-800 text-white">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <Image
+      src="/voltraxbattery-hero.png"
+      alt="VoltraX"
+      fill
+      priority
+      className="object-cover object-center"
+      sizes="(max-width: 640px) 100vw,
+             (max-width: 1024px) 100vw,
+             100vw"
+    />
+    {/* Dark Overlay */}
+    <div className="absolute inset-0 bg-green-900/50" />
+  </div>
+
+  {/* Content */}
   <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-24 w-full max-w-full sm:max-w-xl md:max-w-2xl flex flex-col justify-center text-left">
-    
     <motion.h1
       className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-yellow-400 tracking-tight leading-snug sm:leading-snug md:leading-tight"
       initial={{ opacity: 0, x: -50 }}
@@ -292,7 +301,7 @@ export default function Page() {
 />
 
     <h3 className="text-lg font-semibold text-gray-800 mb-2">Voltrax Farrata Fan 20</h3>
-    <p className="text-gray-500 mb-4">High-capacity EV fan launching soon.</p>
+    <p className="text-gray-500 mb-4">High Performance Fan.</p>
     <a
       href="#contact"
       className="mt-auto inline-flex items-center gap-2 bg-green-700 text-white font-bold px-6 py-2 rounded-full hover:bg-green-800 transition-colors"
@@ -313,7 +322,7 @@ export default function Page() {
       </svg>
     </div>
     <h3 className="text-lg font-semibold text-gray-800 mb-2">Coming Soon</h3>
-    <p className="text-gray-500 mb-4">Ultra-lightweight EV toto coming soon.</p>
+    <p className="text-gray-500 mb-4">Ultra-lightweight EV Rickshaw coming soon.</p>
     <a
       href="#contact"
       className="mt-auto inline-flex items-center gap-2 bg-green-700 text-white font-bold px-6 py-2 rounded-full hover:bg-green-800 transition-colors"
@@ -611,7 +620,6 @@ export default function Page() {
         </svg>
         <div>
           <h3 className="font-semibold text-lg">Pune, India</h3>
-          <h3 className="font-thin text-sm">Office 1 </h3>
            <p><b>Forge Weld Engineering and Fabricators</b></p>
           <p>Flat No.6, S.No.56, Rajnigandha Complex, Vadgaon Sheri, Pune</p>
 
@@ -628,7 +636,6 @@ export default function Page() {
         </svg>
         <div>
           <h3 className="font-semibold text-lg">West Bengal, India</h3>
-          <h3 className="font-thin text-sm">Office 2</h3>
           <p><b>Madina Solar Center</b></p>
           <p>Indira Super Market Complex, Stall No. B/9, Berhampore, West Bengal</p>
           <p className="flex items-center gap-2 mt-1 text-sm">
